@@ -20,12 +20,5 @@ export const create = async () => {
             console.error(error.message);
         }
     }
-    // fs.access(file)
-    //     .then(() => console.log(new Error("FS operation failed")))
-    //     .catch(() => {
-    //         fs.writeFile(file, 'I am fresh and young', (err) => {
-    //             console.log(new Error(err));
-    //         });
-    //     });
 };
 create();
