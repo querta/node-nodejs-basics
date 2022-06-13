@@ -1,3 +1,24 @@
+import * as fs from 'fs/promises';
+
+const checkExist = async (path) => {
+    try {
+        await fs.access(path);
+        return true;
+    } catch {
+        return false;
+    }
+}
+
 export const create = async () => {
-    // Write your code here 
+    const file = './files/fresh.txt';
+    if ((await checkExist(file))) {
+        console.log(new Error("FS operation failed"));
+    } else {
+        try {
+            await fs.writeFile(file, 'I am fresh and young');
+        } catch(err) {
+            console.error(error.message);
+        }
+    }
 };
+create();

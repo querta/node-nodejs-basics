@@ -1,3 +1,16 @@
+import { createHash } from 'crypto';
+import { readFile } from 'fs/promises';
+
+
 export const calculateHash = async () => {
-    // Write your code here 
+    try {
+        const file = await readFile('./files/fileToCalculateHashFor.txt', 'utf8');
+        const hash = await createHash('sha256');
+        hash.update(file);
+        console.log(`${hash.digest('hex')}`);
+    } catch(err) {
+        console.error(err);
+    }
 };
+
+calculateHash();
